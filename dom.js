@@ -207,20 +207,100 @@
 
 // Query SELECTORALL //
 
-var titles = document.querySelectorAll(".title");
+// var titles = document.querySelectorAll(".title");
 
-console.log(titles);
-titles[0].textContent = "Neo";
+// console.log(titles);
+// titles[0].textContent = "Neo";
 
-// This will grab all the odd ones
-var odd = document.querySelectorAll("li:nth-child(odd)");
-var even = document.querySelectorAll("li:nth-child(even)");
+// // This will grab all the odd ones
+// var odd = document.querySelectorAll("li:nth-child(odd)");
+// var even = document.querySelectorAll("li:nth-child(even)");
 
-for (var i = 0; i < odd.length; i++) {
-  odd[i].style.backgroundColor = "#f9a7bb";
-  even[i].style.backgroundColor = "lavender";
-}
+// for (var i = 0; i < odd.length; i++) {
+//   odd[i].style.backgroundColor = "#f9a7bb";
+//   even[i].style.backgroundColor = "lavender";
+// }
 
 // for (var i = 0; i < even.length; i++) {
 //   even[i].style.backgroundColor = "blue";
 // }
+
+// ^^^^^^ PART ONE ^^^^^^
+// vvvvvvv PART 2: Traversing teh DOM vvvvvvvvv
+var itemList = document.querySelector("#items");
+// // parentNode
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor = "#f9a7bb";
+// console.log(itemList.parentNode.parentNode);
+// console.log(itemList.parentNode.parentNode.parentNode);
+
+// parentElement
+// console.log(itemList.parentElement);
+// itemList.parentElement.style.backgroundColor = "#f9a7bb";
+// console.log(itemList.parentElement.parentElement.parentElement);
+
+// childNodes
+//console.log(itemList.childNodes);
+// childNodes includes linebreaks which "is a pita". childNodes is a nodelist
+
+// Children. Children are an HTML collection, not a nodelist like childNodes
+// console.log(itemList.children);
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = "lightblue";
+
+// // firstChild. firstChild includes linebreaks like childNodes
+// console.log(itemList.firstChild);
+// // firstElementChild
+// console.log(itemList.firstElementChild);
+// itemList.firstElementChild.textContent = "Daylight's burning";
+
+// // lastChild. lastChild includes linebreaks like childNodes
+// console.log(itemList.lastChild);
+// // firstElementChild
+// console.log(itemList.lastElementChild);
+// itemList.lastElementChild.textContent = "Greetings";
+
+// // nextSibling, ALSO gets textnode/linebreak
+// console.log(itemList.nextSibling);
+// // nextElementSibling
+// //This retuns NULL because it doesn't actually have a nextElementSibling in current html code
+// console.log(itemList.nextElementSibling);
+
+// // previousSibling
+// console.log(itemList.previousSibling);
+// // previousElementSibling
+// console.log(itemList.previousElementSibling);
+// itemList.previousElementSibling.style.color = "purple";
+
+// createElement
+
+// create a div
+var newDiv = document.createElement("div");
+
+// Add class
+newDiv.className = "hello";
+
+// Add id
+newDiv.id = "Gnomeregan";
+
+// Add Attribute
+newDiv.setAttribute("title", "I just love to tinker");
+
+// Create a text node
+var newDivText = document.createTextNode("Hello World");
+
+// Add text to div
+newDiv.appendChild(newDivText);
+
+// In the header want the container class
+var ourContainer = document.querySelector("header .container");
+// We'll grab the header h1
+var ourH1 = document.querySelector("header h1");
+
+console.log(newDiv);
+
+// Change fontsize of our new DIv
+newDiv.style.fontSize = "30px";
+
+// We're going to take our container and insert our newdiv and then what we're inserting before, which is h1
+ourContainer.insertBefore(newDiv, ourH1);
