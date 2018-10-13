@@ -272,35 +272,137 @@ var itemList = document.querySelector("#items");
 // console.log(itemList.previousElementSibling);
 // itemList.previousElementSibling.style.color = "purple";
 
-// createElement
+// // createElement
 
-// create a div
-var newDiv = document.createElement("div");
+// // create a div
+// var newDiv = document.createElement("div");
 
-// Add class
-newDiv.className = "hello";
+// // Add class
+// newDiv.className = "hello";
 
-// Add id
-newDiv.id = "Gnomeregan";
+// // Add id
+// newDiv.id = "Gnomeregan";
 
-// Add Attribute
-newDiv.setAttribute("title", "I just love to tinker");
+// // Add Attribute
+// newDiv.setAttribute("title", "I just love to tinker");
 
-// Create a text node
-var newDivText = document.createTextNode("Hello World");
+// // Create a text node
+// var newDivText = document.createTextNode("Hello World");
 
-// Add text to div
-newDiv.appendChild(newDivText);
+// // Add text to div
+// newDiv.appendChild(newDivText);
 
-// In the header want the container class
-var ourContainer = document.querySelector("header .container");
-// We'll grab the header h1
-var ourH1 = document.querySelector("header h1");
+// // In the header want the container class
+// var ourContainer = document.querySelector("header .container");
+// // We'll grab the header h1
+// var ourH1 = document.querySelector("header h1");
 
-console.log(newDiv);
+// console.log(newDiv);
 
-// Change fontsize of our new DIv
-newDiv.style.fontSize = "30px";
+// // Change fontsize of our new DIv
+// newDiv.style.fontSize = "30px";
 
-// We're going to take our container and insert our newdiv and then what we're inserting before, which is h1
-ourContainer.insertBefore(newDiv, ourH1);
+// // We're going to take our container and insert our newdiv and then what we're inserting before, which is h1
+// ourContainer.insertBefore(newDiv, ourH1);
+
+// PART 2 OF DOM CRASH COURSE END
+// PART 3 OF DOM CRASH COURSE BEGIN vvv
+// EVENTS AND HOW TO ATTACH THEM!
+
+//I don't know why but my VSC extension split this into 3 lines "var button = document.getElementByID("button").addEventListener("click", buttonClick);
+// var button = document
+//   .getElementById("button")
+//   .addEventListener("click", buttonClick);
+
+// function buttonClick(e) {
+//   //console.log("button clicked!");
+//   //   document.getElementById("header-title").textContent = "Changed";
+//   //   document.querySelector("#main").style.backgroundColor = "#f9a7bb";
+//   //console.log(e); //"e" or "event" works, up to coder
+
+//   //   console.log(e.target);
+//   //   console.log(e.target.id);
+//   //   console.log(e.target.className);
+//   //   console.log(e.target.classList);
+//   //   var output = document.getElementById("output");
+//   //   output.innerHTML = "<h3>" + e.target.id + "</h3>";
+
+//   //   console.log(e.type);
+//   //   //This will grab the x-axis of the client's mouse location in the window
+//   //   console.log(e.clientX);
+//   //   //This will grab the y-axis
+//   //   console.log(e.clientY);
+
+//   //   //   To grab the x/y axis of the mouse's location in the element we use offset
+//   //   console.log(e.offsetX);
+//   //   console.log(e.offsetY);
+
+//   //You can also see if the user is holding down a key when they click, this will return true if user is holding down "alt" while they click the button
+// //   console.log(e.altKey);
+// //   console.log(e.ctrlKey);
+// //   console.log(e.shiftKey);
+// }
+
+var button = document.getElementById("button");
+var box = document.getElementById("box");
+
+// //.addEventListener("click", runEvent);
+
+// //button.addEventListener("click", runEvent);
+// //button.addEventListener("dblclick", runEvent);
+// // This next event fires off the second the mouse goes down, not when its push down and them released back up (faster interaction)
+// //button.addEventListener("mousedown", runEvent);
+// //button.addEventListener("mouseup", runEvent);
+
+// box.addEventListener("mouseenter", runEvent);
+// //box.addEventListener("mouseleave", runEvent);
+
+// // Over and Out will go off for when you go into the element and any child elements within that element
+// box.addEventListener("mouseover", runEvent);
+// //box.addEventListener("mouseout", runEvent);
+
+// box.addEventListener("mousemove", runEvent);
+
+var itemInput = document.querySelector('input[type="text"]');
+var form = document.querySelector("form");
+var select = document.querySelector("select");
+
+// itemInput.addEventListener("keydown", runEvent);
+// itemInput.addEventListener("keyup", runEvent);
+// itemInput.addEventListener("keypress", runEvent);
+
+// itemInput.addEventListener("focus", runEvent);
+// itemInput.addEventListener("blur", runEvent);
+
+// itemInput.addEventListener("cut", runEvent);
+// itemInput.addEventListener("paste", runEvent);
+
+//itemInput.addEventListener("input", runEvent);
+
+// select.addEventListener("change", runEvent);
+// select.addEventListener("input", runEvent);
+
+form.addEventListener("submit", runEvent);
+
+function runEvent(e) {
+  e.preventDefault();
+  //remember e is just the event object
+  console.log("EVENT TYPE " + e.type);
+
+  //This code below just blanks out the whole webpage, good idea for troll sites!
+  //document.body.style.display = "none";
+  // e.target.value gives the value of whatever you're doing
+  //   console.log(e.target.value);
+  //   document.getElementById("output").innerHTML =
+  //     "<h3>" + e.target.value + "</h3>";
+
+  //   output.innerHTML =
+  //     "<h3>MouseX: " + e.offsetX + " </h3><h3>MouseY: " + e.offsetY + "</h3>";
+
+  // // This changes the color of the box based on the mouse's position!
+  //  box.style.backgroundColor = "rgb(" + e.offsetX + "," + e.offsetY + ", 255)";
+
+  //   // This changes the background color of the body based on mouse's position in the box!
+  //   document.body.style.backgroundColor =
+  //     "rgb(" + e.offsetX + "," + e.offsetY + ", 255)";
+}
